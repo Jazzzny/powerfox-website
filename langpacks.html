@@ -1,0 +1,190 @@
+---
+layout: default
+title: Language Packs
+description: Download language packs for PowerFox Browser.
+---
+
+<div class="downloads-container">
+    <h1 class="downloads-title">Language Packs</h1>
+    <div id="langpack-info">
+        <p>To install a language pack, install your desired language, visit <b>about:config</b>, set <b>general.useragent.locale</b> to the language code, and restart PowerFox.</p>
+        <p>Note: The listed language packs are only compatible with the latest release of PowerFox. Find language packs for older releases <a href="https://github.com/Jazzzny/powerfox-languagepacks/tags">here</a>.</p>
+    </div>
+    <div id="langpack-list">
+        <p style="text-align: center; padding: 40px 0; color: #86868B;">Loading language packs...</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    var languageNames = {
+        'ach': 'Acholi',
+        'af': 'Afrikaans',
+        'an': 'Aragonese',
+        'ar': 'Arabic / العربية',
+        'as': 'Assamese / অসমীয়া',
+        'ast': 'Asturian',
+        'az': 'Azerbaijani',
+        'be': 'Belarusian / Беларуская',
+        'bg': 'Bulgarian / Български',
+        'bn': 'Bengali / বাংলা',
+        'bn-BD': 'Bengali (Bangladesh) / বাংলা (বাংলাদেশ)',
+        'bn-IN': 'Bengali (India) / বাংলা (ভারত)',
+        'br': 'Breton',
+        'bs': 'Bosnian',
+        'ca': 'Catalan / Català',
+        'cak': 'Kaqchikel',
+        'cs': 'Czech / Čeština',
+        'cy': 'Welsh / Cymraeg',
+        'da': 'Danish / Dansk',
+        'de': 'German / Deutsch',
+        'dsb': 'Lower Sorbian',
+        'el': 'Greek / Ελληνικά',
+        'en-GB': 'English (British)',
+        'en-US': 'English (US)',
+        'en-ZA': 'English (South Africa)',
+        'eo': 'Esperanto',
+        'es-AR': 'Spanish (Argentina)',
+        'es-CL': 'Spanish (Chile)',
+        'es-ES': 'Spanish (Spain) / Español',
+        'es-MX': 'Spanish (Mexico)',
+        'et': 'Estonian / Eesti',
+        'eu': 'Basque / Euskara',
+        'fa': 'Persian / فارسی',
+        'ff': 'Fulah',
+        'fi': 'Finnish / Suomi',
+        'fr': 'French / Français',
+        'fy-NL': 'Frisian',
+        'ga-IE': 'Irish / Gaeilge',
+        'gd': 'Gaelic (Scotland)',
+        'gl': 'Galician / Galego',
+        'gn': 'Guaraní',
+        'gu-IN': 'Gujarati / ગુજરાતી',
+        'he': 'Hebrew / עברית',
+        'hi-IN': 'Hindi / हिन्दी',
+        'hr': 'Croatian / Hrvatski',
+        'hsb': 'Upper Sorbian',
+        'hu': 'Hungarian / Magyar',
+        'hy-AM': 'Armenian / Հայերեն',
+        'ia': 'Interlingua',
+        'id': 'Indonesian / Bahasa Indonesia',
+        'is': 'Icelandic / Íslenska',
+        'it': 'Italian / Italiano',
+        'ja': 'Japanese / 日本語',
+        'ka': 'Georgian / ქართული',
+        'kab': 'Kabyle',
+        'kk': 'Kazakh / Қазақ',
+        'km': 'Khmer / ខ្មែរ',
+        'kn': 'Kannada / ಕನ್ನಡ',
+        'ko': 'Korean / 한국어',
+        'lij': 'Ligurian',
+        'lt': 'Lithuanian / Lietuvių',
+        'lv': 'Latvian / Latviešu',
+        'mai': 'Maithili / मैथिली',
+        'mk': 'Macedonian / Македонски',
+        'ml': 'Malayalam / മലയാളം',
+        'mr': 'Marathi / मराठी',
+        'ms': 'Malay / Bahasa Melayu',
+        'my': 'Burmese / မြန်မာဘာသာ',
+        'nb-NO': 'Norwegian (Bokmål)',
+        'ne-NP': 'Nepali / नेपाली',
+        'nl': 'Dutch / Nederlands',
+        'nn-NO': 'Norwegian (Nynorsk)',
+        'oc': 'Occitan',
+        'or': 'Odia / ଓଡ଼ିଆ',
+        'pa-IN': 'Punjabi / ਪੰਜਾਬੀ',
+        'pl': 'Polish / Polski',
+        'pt-BR': 'Portuguese (Brazil)',
+        'pt-PT': 'Portuguese (Portugal)',
+        'rm': 'Romansh',
+        'ro': 'Romanian / Română',
+        'ru': 'Russian / Русский',
+        'si': 'Sinhala / සිංහල',
+        'sk': 'Slovak / Slovenčina',
+        'sl': 'Slovenian / Slovenščina',
+        'son': 'Songhai',
+        'sq': 'Albanian / Shqip',
+        'sr': 'Serbian / Српски',
+        'sv-SE': 'Swedish / Svenska',
+        'ta': 'Tamil / தமிழ்',
+        'te': 'Telugu / తెలుగు',
+        'th': 'Thai / ไทย',
+        'tl': 'Tagalog',
+        'tr': 'Turkish / Türkçe',
+        'trs': 'Triqui',
+        'uk': 'Ukrainian / Українська',
+        'ur': 'Urdu / اردو',
+        'uz': 'Uzbek / Oʻzbekcha',
+        'vi': 'Vietnamese / Tiếng Việt',
+        'xh': 'Xhosa',
+        'zh-CN': 'Chinese (Simplified) / 中文（简体）',
+        'zh-TW': 'Chinese (Traditional) / 中文（繁體）'
+    };
+
+    function extractLangCode(filename) {
+        var match = filename.match(/langpack-([a-z]{2,3}(?:-[A-Z]{2})?)/);
+        return match ? match[1] : null;
+    }
+
+    function renderLangpacks(assets) {
+        var container = document.getElementById('langpack-list');
+
+        if (!assets || assets.length === 0) {
+            container.innerHTML = '<p style="text-align: center; padding: 40px 0; color: #86868B;">No language packs available yet.</p>';
+            return;
+        }
+
+        var html = '';
+        assets.forEach(function(asset) {
+            if (!asset.name.match(/^langpack-.*\.xpi$/)) {
+                return;
+            }
+
+            var langCode = extractLangCode(asset.name);
+            if (!langCode) return;
+
+            var langName = languageNames[langCode] || langCode;
+            var sizeInMB = (asset.size / (1024 * 1024)).toFixed(2);
+
+            html += '<div class="download-item">' +
+                '<div class="download-content">' +
+                '<h2 class="addon-title">' + langName + '</h2>' +
+                '<div class="download-meta">' +
+                '<div class="download-meta-item">' +
+                '<span class="download-meta-label">Language Code</span>' +
+                '<span class="download-meta-value">' + langCode + '</span>' +
+                '</div>' +
+                '<div class="download-meta-item">' +
+                '<span class="download-meta-label">Size</span>' +
+                '<span class="download-meta-value">' + sizeInMB + ' MB</span>' +
+                '</div>' +
+                '<div class="download-meta-item">' +
+                '</div>' +
+                '</div>' +
+                '<div class="download-links">' +
+                '<a href="' + asset.browser_download_url + '">Install ›</a>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+        });
+
+        container.innerHTML = html;
+    }
+
+    fetch('https://api.github.com/repos/Jazzzny/powerfox-languagepacks/releases/latest')
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('GitHub API request failed');
+            }
+            return response.json();
+        })
+        .then(function(data) {
+            renderLangpacks(data.assets);
+        })
+        .catch(function(error) {
+            document.getElementById('langpack-list').innerHTML =
+                '<p style="text-align: center; padding: 40px 0; color: #86868B;">Error loading language packs: ' +
+                error.message + '</p>';
+        });
+})();
+</script>

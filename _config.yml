@@ -1,0 +1,18 @@
+title: PowerFox Browser
+description: A secure, modern, and open-source web browser for Mac OS X 10.6 Snow Leopard
+baseurl: ""
+url: "https://powerfox.jazzzny.me"
+
+markdown: kramdown
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+author: Jazzzny
+lang: en
+theme: null
+
+collections:
+  releases:
+    output: false

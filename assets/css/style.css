@@ -1,0 +1,426 @@
+/* Font Faces */
+@font-face {
+    font-family: "Metropolis";
+    src: url("../font/Metropolis-Regular.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("../font/Metropolis-Bold.otf") format("opentype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-SemiBoldItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Base Styles */
+body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+/* Sticky Footer Layout */
+body.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content {
+    flex: 1 0 auto;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h2, p {
+    margin: 10px;
+}
+
+p {
+    color: #333333;
+}
+
+a {
+    color: #06c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation */
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 16px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar li {
+    display: block;
+}
+
+.navbar li a {
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding: 0 16px;
+    color: #333333;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar li a img {
+    display: block;
+    height: 20px;
+}
+
+/* Hero Header */
+.hero-header {
+    padding-top: 55px;
+    padding-bottom: 120px;
+}
+
+.hero-eyebrow {
+    font-family: "Metropolis";
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.125;
+    letter-spacing: -.02em;
+    margin-bottom: 0px;
+}
+
+.hero-headline {
+    font-size: 72px;
+    line-height: 1.05556;
+    font-weight: 600;
+    letter-spacing: -.012em;
+    margin-top: 20px;
+}
+
+.hero-prodimg {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 900px;
+    max-width: 90%;
+    height: auto;
+}
+
+.hero-header p {
+    font-size: 24px;
+    line-height: 1.28583;
+    font-weight: 400;
+    letter-spacing: .007em;
+    max-width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-header a {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 24px;
+    line-height: 1.28583;
+    font-weight: 400;
+    color: #06c;
+    text-decoration: none;
+}
+
+.hero-header a:hover {
+    text-decoration: underline;
+}
+
+/* Showcase Element */
+.showcase-element {
+    background-color: #F5F5F7;
+    padding: 80px 0;
+    text-align: left;
+}
+
+.showcase-element-content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.showcase-element h3 {
+    font-size: 21px;
+    line-height: 1.19048;
+    font-weight: 600;
+    letter-spacing: .011em;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
+
+.showcase-element h2 {
+    font-size: 56px;
+    line-height: 1.07143;
+    font-weight: 600;
+    letter-spacing: -.005em;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #1d1d1f;
+}
+
+.showcase-element p {
+    font-size: 21px;
+    line-height: 1.381;
+    font-weight: 400;
+    letter-spacing: .011em;
+    color: #86868B;
+    margin-bottom: 24px;
+}
+
+.showcase-element a {
+    display: inline-block;
+    font-size: 21px;
+    line-height: 1.381;
+    font-weight: 400;
+    color: #06c;
+    text-decoration: none;
+}
+
+.showcase-element a:hover {
+    text-decoration: underline;
+}
+
+.showcase-element img {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+
+/* Footer */
+footer {
+    background-color: #ececec;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    flex-shrink: 0;
+}
+
+footer p {
+    margin: 0;
+    color: #bbbbbb;
+}
+
+/* Downloads Container */
+.downloads-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: left;
+}
+
+.downloads-title {
+    font-size: 48px;
+    line-height: 1.08349;
+    font-weight: 600;
+    letter-spacing: -.003em;
+    margin-bottom: 60px;
+    color: #1d1d1f;
+    text-align: center;
+}
+
+.download-item {
+    display: flex;
+    gap: 30px;
+    padding: 40px 0;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.download-item:last-child {
+    border-bottom: none;
+}
+
+.download-icon {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+}
+
+.download-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.download-content {
+    flex: 1;
+}
+
+.download-content h2 {
+    font-family: "Metropolis";
+    font-size: 32px;
+    line-height: 1.125;
+    font-weight: 700;
+    letter-spacing: .004em;
+    margin: 0 0 12px 0;
+    color: #1d1d1f;
+}
+
+.addon-title {
+    font-family: "Inter" !important;
+}
+
+.langpack-name {
+    font-weight: 700 !important;
+}
+
+.download-content p {
+    font-size: 17px;
+    line-height: 1.4705882353;
+    font-weight: 400;
+    color: #1d1d1f;
+    margin: 0 0 12px 0;
+}
+
+.download-meta {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+}
+
+.download-meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.download-meta-label {
+    font-size: 12px;
+    line-height: 1.3333733333;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 0px;
+}
+
+.download-meta-value {
+    font-size: 12px;
+    line-height: 1.47059;
+    font-weight: 600;
+    color: #666;
+}
+
+.download-links {
+    margin-top: 20px;
+}
+
+.download-links a {
+    display: block;
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    color: #06c;
+    text-decoration: none;
+    margin-bottom: 0px;
+}
+
+.download-links a:hover {
+    text-decoration: underline;
+}
+
+/* Content Pages (Changelog) */
+.content {
+    text-align: left;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.content h2 {
+    border-bottom: 1px solid #d2d2d7;
+    padding-bottom: 10px;
+}
+
+.content p {
+    line-height: 1.6;
+    color: #333;
+}
+
+.content a {
+    color: #06c;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+.content ul, .content ol {
+    line-height: 1.8;
+    color: #333;
+}
+
+.content code {
+    background-color: #f5f5f7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.content pre {
+    background-color: #f5f5f7;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* Utility Classes */
+#soon {
+    padding: 100px;
+}

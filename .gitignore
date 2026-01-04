@@ -1,0 +1,10 @@
+Gemfile.lock
+_site/
+.jekyll-cache/
+.sass-cache/
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

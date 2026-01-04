@@ -1,0 +1,30 @@
+---
+layout: default
+title: Changelog
+description: View the PowerFox Browser changelog and release notes.
+---
+
+<div class="content" id="powerfoxchangelog">Loading PowerFox changelog...</div>
+<!--    <div class="content" id="powerbirdchangelog">Loading PowerBird changelog...</div>-->
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+    <script>
+        fetch('https://raw.githubusercontent.com/Jazzzny/powerfox-browser/refs/heads/main/CHANGELOG.md')
+        .then(response => response.text())
+        .then(markdown => {
+            document.getElementById('powerfoxchangelog').innerHTML = marked.parse(markdown);
+        })
+        .catch(error => {
+            document.getElementById('powerfoxchangelog').innerHTML = '<p>Error loading changelog: ' + error.message + '</p>';
+        });
+
+        /*fetch('https://raw.githubusercontent.com/Jazzzny/powerfox-browser/refs/heads/main/CHANGELOG.md')
+        .then(response => response.text())
+        .then(markdown => {
+            document.getElementById('powerbirdchangelog').innerHTML = marked.parse(markdown);
+        })
+        .catch(error => {
+            document.getElementById('powerbirdchangelog').innerHTML = '<p>Error loading changelog: ' + error.message + '</p>';
+        });*/
+    </script>
+
