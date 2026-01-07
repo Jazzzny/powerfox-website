@@ -13,6 +13,9 @@ author: Jazzzny
 lang: en
 theme: null
 
+plugins:
+  - jekyll-sitemap
+
 collections:
   releases:
     output: false
