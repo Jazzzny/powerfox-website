@@ -19,21 +19,25 @@ description: Download PowerFox Browser for Mac OS X 10.6 Snow Leopard.
                 <div class="download-meta">
                     <div class="download-meta-item">
                         <span class="download-meta-label">Released</span>
-                        <span class="download-meta-value">December 26, 2025</span>
+                        <span class="download-meta-value" id="release-date">January 3, 2026</span>
                     </div>
                     <div class="download-meta-item">
                         <span class="download-meta-label">Version</span>
-                        <span class="download-meta-value">20251226</span>
+                        <span class="download-meta-value" id="release-version">26.1.0</span>
                     </div>
                     <div class="download-meta-item">
                         <span class="download-meta-label">Compatibility</span>
                         <span class="download-meta-value">Mac OS X 10.6 or newer</span>
                     </div>
+                    <div class="download-meta-item" id="outdated-warning" style="display: none;">
+                        <span class="download-meta-label">Notice</span>
+                        <span class="download-meta-value">This release may not be latest as your browser is unable to fetch release information. Please check for a newer version through PowerFox after downloading this release.</span>
+                    </div>
                 </div>
 
                 <div class="download-links">
-                    <a href="{{ '/assets/downloads/powerfox-26.1.0-x86_64.zip' | relative_url }}">PowerFox Intel 64-bit ↓</a>
-                    <a href="{{ '/assets/downloads/powerfox-26.1.0-i386.zip' | relative_url }}">PowerFox Intel 32-bit ↓</a>
+                    <a href="{{ '/assets/downloads/powerfox-26.1.0-x86_64.zip' | relative_url }}" id="download-64bit">PowerFox Intel 64-bit ↓</a>
+                    <a href="{{ '/assets/downloads/powerfox-26.1.0-i386.zip' | relative_url }}" id="download-32bit">PowerFox Intel 32-bit ↓</a>
                     <br>
                     <a href="https://github.com/Jazzzny/powerfox-browser/releases">Release notes, source code, and older versions ›</a>
                 </div>
@@ -74,3 +78,50 @@ description: Download PowerFox Browser for Mac OS X 10.6 Snow Leopard.
         </div> -->
 
     </div>
+
+<script>
+(function() {
+    if (typeof fetch === 'undefined') {
+        // Show warning for older browsers
+        var warning = document.getElementById('outdated-warning');
+        if (warning) {
+            warning.style.display = 'flex';
+        }
+        return;
+    }
+
+    fetch('https://api.github.com/repos/Jazzzny/powerfox-browser/releases/latest')
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+            // Update release date
+            var releaseDate = new Date(data.published_at);
+            var options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('release-date').textContent = releaseDate.toLocaleDateString('en-US', options);
+            document.getElementById('release-version').textContent = data.tag_name || data.name;
+
+            // Update download links
+            var assets = data.assets;
+            if (assets && assets.length > 0) {
+                var asset64 = assets.find(function(a) {
+                    return a.name.includes('x86_64') || a.name.includes('64-bit');
+                });
+                var asset32 = assets.find(function(a) {
+                    return a.name.includes('i386') || a.name.includes('32-bit');
+                });
+
+                if (asset64) {
+                    document.getElementById('download-64bit').href = asset64.browser_download_url;
+                }
+                if (asset32) {
+                    document.getElementById('download-32bit').href = asset32.browser_download_url;
+                }
+            }
+        })
+        .catch(function(error) {
+            var warning = document.getElementById('outdated-warning');
+            if (warning) {
+                warning.style.display = 'flex';
+            }
+        });
+})();
+</script>
