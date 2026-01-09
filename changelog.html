@@ -9,6 +9,11 @@ description: View the PowerFox Browser changelog and release notes.
 
     <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
     <script>
+        if (typeof fetch === 'undefined') {
+        // Update the content to show an error message
+        document.getElementById('powerfoxchangelog').innerHTML = '<p>Your browser is unable to fetch the changelog. Please view the changelog in a modern browser, such as PowerFox itself.</p>';
+        }
+
         fetch('https://raw.githubusercontent.com/Jazzzny/powerfox-browser/refs/heads/main/CHANGELOG.md')
         .then(response => response.text())
         .then(markdown => {

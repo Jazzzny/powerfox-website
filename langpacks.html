@@ -171,6 +171,13 @@ description: Download language packs for PowerFox Browser.
         container.innerHTML = html;
     }
 
+    if (typeof fetch === 'undefined') {
+        document.getElementById('langpack-list').innerHTML =
+            '<p style="text-align: center; padding: 40px 0; color: #86868B;">Your browser is unable to fetch language pack information. Please view this page in a modern browser, such as PowerFox itself.</p>';
+        return;
+    }
+
+
     fetch('https://api.github.com/repos/Jazzzny/powerfox-languagepacks/releases/latest')
         .then(function(response) {
             if (!response.ok) {
