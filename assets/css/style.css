@@ -424,3 +424,68 @@ footer p {
 #soon {
     padding: 100px;
 }
+
+/* News Section */
+.news-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    margin-bottom: 40px;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.post-link {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.post-link:hover {
+    color: #F05B29;
+}
+
+/* Single Post */
+.post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.post-header {
+    margin-bottom: 30px;
+}
+
+.post-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    text-align: left;
+}
+
+.post-content h2 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
