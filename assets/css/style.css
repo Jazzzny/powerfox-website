@@ -495,3 +495,59 @@ footer p {
     margin-bottom: 20px;
     line-height: 1.6;
 }
+
+/* Welcome Page */
+.welcome-container {
+    text-align: center;
+    letter-spacing: .004em;
+    padding-top: 60px;
+}
+
+.welcome-logo {
+    width: 128px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.welcome-title {
+    font-size: 48px;
+    line-height: 1.08349;
+    font-weight: 600;
+    letter-spacing: -.003em;
+    color: #1d1d1f;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.welcome-intro {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.welcome-links {
+    margin-bottom: 10px;
+}
+
+.welcome-link {
+    font-size: 17px;
+    margin: 0 15px;
+}
+
+.welcome-footer {
+    margin-top: 50px;
+    color: #888;
+    font-size: 14px;
+}

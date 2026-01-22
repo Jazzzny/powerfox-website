@@ -1,134 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <style>
-            /* This Source Code Form is subject to the terms of the Mozilla Public
-            * License, v. 2.0. If a copy of the MPL was not distributed with this file,
-            * You can obtain one at http://mozilla.org/MPL/2.0/. */
+---
+layout: default
+title: Welcome
+description: Welcome to PowerFox
+robots: noindex
+sitemap: false
+---
 
-            body {
-            background-image: url("/assets/img/imagedoc-darknoise.png");
-            background-color: rgb(33,33,33); /* Average color of that ^ image. */
-            }
+<div class="welcome-container">
+    <img src="{{ '/assets/img/powerfox-col.png' | relative_url }}" alt="PowerFox Logo" class="welcome-logo">
+    <h1 class="welcome-title">Welcome to PowerFox</h1>
 
-            video {
-            box-shadow: 0 0 15px #000;
-            }
+    <div id="welcome-info" class="welcome-info">
+        <p class="welcome-intro">Congratulations on installing PowerFox Browser!</p>
+        <p class="welcome-text">
+            To get started, explore PowerFox's features, customize your settings, find add-ons, and install language packs to enhance your browsing experience.
+        </p>
 
-            body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            }
+        <p class="welcome-links">
+            <a href="{{ '/community.html' | relative_url }}" class="welcome-link">Join the Community ›</a>
+            <a href="{{ '/news.html' | relative_url }}" class="welcome-link">Read Latest News ›</a>
+        </p>
 
-            video {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            max-width: 100%;
-            max-height: 100%;
-            -moz-user-select: none;
-            user-select: none;
-            }
+        <p class="welcome-links">
+            <a href="{{ '/addons.html' | relative_url }}" class="welcome-link">Explore Add-ons ›</a>
+            <a href="{{ '/langpacks.html' | relative_url }}" class="welcome-link">Get Language Packs ›</a>
+        </p>
 
-            video:focus {
-            outline-width: 0;
-            }
-
-            #play-button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            width: 140px;
-            height: 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            border: 2px solid #fff;
-            background-color: rgba(0, 0, 0, 0);
-            }
-
-            #play-button.hidden {
-            display: none;
-            }
-
-            #play-button p {
-            color: #fff;
-            font-size: 14px;
-            margin: 0;
-            padding: 0;
-            font-family: "Lucida Grande";
-            }
-
-            a {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: gray;
-            font-family: "Lucida Grande";
-            text-decoration: none;
-            font-size: 13px;
-            }
-
-            a:hover {
-            text-decoration: underline;
-            }
-
-        </style>
-    </head>
-    <body>
-        <video id="video-player">
-            <source src="/assets/img/intromovie.mp4" type="video/mp4">
-        </video>
-        <button id="play-button" title="Play">
-            <p>Play Intro Movie</p>
-        </button>
-
-        <a href="https://powerfox.jazzzny.me">Visit PowerFox Website</a>
-
-        <script>
-        (function() {
-            var video = document.getElementById('video-player');
-            var playButton = document.getElementById('play-button');
-
-            if (!video || !playButton) {
-                return;
-            }
-
-            function togglePlay() {
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            }
-
-            function updateButtonVisibility() {
-                if (video.paused) {
-                    playButton.classList.remove('hidden');
-                } else {
-                    playButton.classList.add('hidden');
-                }
-            }
-
-            playButton.addEventListener('click', togglePlay);
-            video.addEventListener('play', updateButtonVisibility);
-            video.addEventListener('pause', updateButtonVisibility);
-            video.addEventListener('ended', updateButtonVisibility);
-
-            updateButtonVisibility();
-        })();
-        </script>
-    </body>
-</html>
+        <p class="welcome-footer">Enjoy your journey with PowerFox!</p>
+    </div>
+</div>
