@@ -341,13 +341,13 @@ footer p {
 }
 
 .download-meta {
-    display: flex;
     margin: 20px 0;
+    font-size: 0; /* Clear whitespace between inline-blocks */
 }
 
 .download-meta-item {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
+    vertical-align: top;
     margin-right: 40px;
 }
 
@@ -356,6 +356,7 @@ footer p {
 }
 
 .download-meta-label {
+    display: block;
     font-size: 12px;
     line-height: 1.3333733333;
     font-weight: 400;
@@ -364,6 +365,7 @@ footer p {
 }
 
 .download-meta-value {
+    display: block;
     font-size: 12px;
     line-height: 1.47059;
     font-weight: 600;
