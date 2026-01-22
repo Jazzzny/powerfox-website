@@ -63,6 +63,11 @@ body {
     text-align: center;
 }
 
+/* Firefox 3.6 Logo Border Fix */
+#navlogo {
+    border: none;
+}
+
 /* Sticky Footer Layout */
 body.page {
     min-height: 100vh;
