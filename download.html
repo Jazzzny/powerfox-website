@@ -98,12 +98,19 @@ description: Download PowerFox Browser for Mac OS X 10.6 Snow Leopard.
             // Update download links
             var assets = data.assets;
             if (assets && assets.length > 0) {
-                var asset64 = assets.find(function(a) {
-                    return a.name.includes('x86_64') || a.name.includes('64-bit');
-                });
-                var asset32 = assets.find(function(a) {
-                    return a.name.includes('i386') || a.name.includes('32-bit');
-                });
+                var asset64 = null;
+                var asset32 = null;
+
+                for (var i = 0; i < assets.length; i++) {
+                    var a = assets[i];
+                    var name = a.name || '';
+                    if (!asset64 && (name.indexOf('x86_64') !== -1 || name.indexOf('64-bit') !== -1)) {
+                        asset64 = a;
+                    }
+                    if (!asset32 && (name.indexOf('i386') !== -1 || name.indexOf('32-bit') !== -1)) {
+                        asset32 = a;
+                    }
+                }
 
                 if (asset64) {
                     document.getElementById('download-64bit').href = asset64.browser_download_url;

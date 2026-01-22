@@ -51,6 +51,10 @@
 }
 
 /* Base Styles */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
 body {
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica', "Helvetica Neue", "Arial", sans-serif;
     margin: 0;
@@ -276,9 +280,16 @@ footer p {
 }
 
 .download-item {
+    display: block;
     display: flex;
     padding: 40px 0;
     border-bottom: 1px solid #d2d2d7;
+}
+
+.download-item::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .download-item:last-child {
@@ -286,6 +297,7 @@ footer p {
 }
 
 .download-icon {
+    float: left;
     flex-shrink: 0;
     width: 96px;
     height: 96px;
@@ -298,6 +310,7 @@ footer p {
 }
 
 .download-content {
+    overflow: hidden;
     flex: 1;
 }
 
