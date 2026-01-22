@@ -16,7 +16,7 @@ description: Download PowerFox Browser for Mac OS X 10.6 Snow Leopard.
                 <p>PowerFox is a modern web browser for Mac OS X 10.6 Snow Leopard.</p>
                 <p>If you are unsure of which version to download, please choose the Intel 64-bit version for optimal performance on most Intel-based Mac computers.</p>
 
-                <div id="outdated-warning" style="display: none; color: red; margin-bottom: 10px;">
+                <div id="outdated-warning" style="display: flex; margin-bottom: 10px;">
                     This release may not be latest as your browser is unable to fetch release information. Please check for a newer version through PowerFox after downloading this release.
                 </div>
 
@@ -82,11 +82,7 @@ description: Download PowerFox Browser for Mac OS X 10.6 Snow Leopard.
 <script>
 (function() {
     if (typeof fetch === 'undefined') {
-        // Show warning for older browsers
-        var warning = document.getElementById('outdated-warning');
-        if (warning) {
-            warning.style.display = 'flex';
-        }
+        console.warn('Fetch API not supported in this browser.');
         return;
     }
 
@@ -116,12 +112,15 @@ description: Download PowerFox Browser for Mac OS X 10.6 Snow Leopard.
                     document.getElementById('download-32bit').href = asset32.browser_download_url;
                 }
             }
-        })
-        .catch(function(error) {
+
+            // Hide outdated warning
             var warning = document.getElementById('outdated-warning');
             if (warning) {
-                warning.style.display = 'flex';
+                warning.style.display = 'none';
             }
+        })
+        .catch(function(error) {
+            console.error('Error fetching release info:', error);
         });
 })();
 </script>
