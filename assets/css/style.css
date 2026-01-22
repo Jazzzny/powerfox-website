@@ -319,7 +319,7 @@ footer p {
     font-weight: 700 !important;
 }
 
-.download-content p {
+.download-content p, #outdated-warning {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 400;
