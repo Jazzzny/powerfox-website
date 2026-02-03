@@ -25,7 +25,7 @@ Right now, PowerFox is offered in a beta state for PowerPC - expect bugs and oth
 - Certain SVG images will not render correctly - under investigation.
 
 
-PowerFox for PowerPC wouldn't have been possible without code written by Dr. Cameron Kaiser for TenFourFox and the developers behind the UXP web engine - namely dbsoft. Thank you!
+PowerFox for PowerPC wouldn't have been possible without code written by Dr. Cameron Kaiser for TenFourFox and the developers behind the UXP web engine - namely dbsoft, and the Basilisk project. Thank you!
 
 You can download a build from the <a href="{{ site.baseurl }}/download.html">download page</a>.
 
