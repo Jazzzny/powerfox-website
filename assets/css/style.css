@@ -69,6 +69,9 @@ body {
 #navlogo {
     border: none;
 }
+a img {
+    border: none;
+}
 
 /* Sticky Footer Layout */
 body.page {
