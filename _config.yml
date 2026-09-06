@@ -1,6 +1,5 @@
 title: PowerFox Browser
-description: A secure, modern, and open-source web browser for Mac OS X 10.3 Panther, 10.4 Tiger, 10.5 Leopard, and 10.6 Snow Leopard
-baseurl: ""
+description: Two secure, modern, and open-source web browsers for older releases of macOS spanning from Mac OS X 10.3 Panther to 10.6 Snow Leopard to 10.9 Mavericks to 10.14 Mojave.
 url: "https://powerfox.org"
 
 markdown: kramdown
